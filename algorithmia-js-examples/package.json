@@ -1,0 +1,23 @@
+{
+  "name": "idz-message-router",
+  "version": "0.1.0",
+  "description": "IDZ message router",
+  "private": true,
+  "main": "message-router.js",
+  "scripts": {
+    "start": "node ./drupal-router.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sheldonkreger/algorithmia-js-examples.git"
+  },
+  "author": "Algorithmia",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/sheldonkreger/algorithmia-js-examples/issues"
+  },
+  "homepage": "https://github.com/sheldonkreger/algorithmia-js-examples",
+  "dependencies": {
+    "algorithmia": "^0.2.1"
+  }
+}
