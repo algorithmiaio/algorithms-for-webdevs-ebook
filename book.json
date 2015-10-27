@@ -1,13 +1,18 @@
 {
-  "structure": {
-      "readme": "chapters/introduction.md"
-  },
- 
- "plugins": ["ga"],
+  "title": "5 Algorithms Every Web Developer Can Use and Understand",
+  "description": "A short primer on when & how to harness the power of algorithms for web developers.",
+  "language": "en",
+  "gitbook": ">=2.0.0",
 
-	"pluginsConfig": {
-		"ga": {
-			"token": "UA-38617973-1"
-		}
-	} 
+  "structure": {
+    "readme": "chapters/introduction.md"
+  },
+
+  "plugins": ["ga"],
+
+  "pluginsConfig": {
+    "ga": {
+      "token": "UA-38617973-1"
+    }
+  } 
 }
