@@ -5,7 +5,7 @@
   "gitbook": ">=2.0.0",
 
   "structure": {
-    "readme": "chapters/introduction.md"
+    "readme": "introduction.md"
   },
 
   "plugins": ["ga"],

@@ -6,5 +6,5 @@
 * [Nudity Detection](chapters/nudity-detection.md)
 * [Sentiment Analysis](chapters/sentiment-analysis.md)
 * [TF-IDF](chapters/tf-idf.md)
-* [Conclusion](chapters/conclusion.md)
-* [Appendix A](chapters/appendix-a.md)
+* [Conclusion](conclusion.md)
+* [Appendix A](appendix-a.md)
