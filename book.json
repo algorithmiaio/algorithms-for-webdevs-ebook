@@ -1,14 +1,13 @@
 {
-    "structure": {
-        "readme": "chapters/introduction.md"
-    }
-   
-  { "plugins": ["ga"],
-  
-  	"pluginsConfig": {
-  		"ga": {
-  			"token": "UA-38617973-1"
-  		}
-  	} 
-  }
+  "structure": {
+      "readme": "chapters/introduction.md"
+  },
+ 
+ "plugins": ["ga"],
+
+	"pluginsConfig": {
+		"ga": {
+			"token": "UA-38617973-1"
+		}
+	} 
 }
