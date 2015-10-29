@@ -61,22 +61,25 @@ var client = algorithmia(process.env.ALGORITHMIA_API_KEY);
 var input = "http://www.lenna.org/full/len_full.jpg";
 
 client.algo("sfw/NudityDetection/1.0.x").pipe(input).then(function(output) {
-if (output.error) {
-console.log(output.error);
-} else {
-var result = JSON.parse(output.result);
-confidence = result.confidence;
-if (confidence < 85) {
-console.log("Uncertain");
-} else if (result.nude) {
-console.log("Nude");
-} else {
-console.log("Not nude");
-}
-}
+
+  if (output.error) {
+    console.log(output.error);
+  } else {
+
+    var result = JSON.parse(output.result);
+    confidence = result.confidence;
+
+    if (confidence < 85) {
+      console.log("Uncertain");
+    } else if (result.nude) {
+      console.log("Nude");
+    } else {
+      console.log("Not nude");
+    }
+  }
 });
 ```
 
-Here we have an example where we've parsed out the confidence level from the algorithm's result, then added in a conditional check. Where `confidence < 85`, we can take special action such as adding the image to a moderation queue or adding a warning that the content might contain nudity. 
+Here we have an example where we've parsed out the confidence level from the algorithm's result, then added in a conditional check. Where `confidence < 85`, we can take special action such as adding the image to a moderation queue or adding a warning that the content might contain nudity.
 
 By using the Nudity Detection algorithm and adjusting the threshold to our needs, you can easily see how valuable the algorithm can be for web developers. It allows you another layer of safety and control when working with applications that include user-uploaded content.
