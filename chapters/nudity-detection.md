@@ -22,7 +22,7 @@ There is a four step process, outlined in [the paper](https://be82ac79-a-aff4c78
 1. Detect skin-colored pixels in the image.
 2. Locate or form skin regions based on the detected skin pixels.
 3. Analyze the skin regions for clues of nudity or non-nudity.
-4. Classify the image as nude or not.
+4. Classify the image as nude or not.  
 
 The first step uses an 'skin color distribution model' to analyze the image pixel by pixel to see if each matches a known skin color. The algorithm then performs sophisticated analysis of the percentage of skin colored regions, their relative size, and their relative locations. Many factors are taken into account and ultimately a boolean value is returned, along with a confidence score.
 
@@ -39,7 +39,8 @@ var algorithmia = require("algorithmia");
 var client = algorithmia(process.env.ALGORITHMIA_API_KEY);
 var input = "http://www.lenna.org/full/len_full.jpg";
 
-client.algo("sfw/NudityDetection").pipe(input).then(function(output) {
+client.algo("sfw/NudityDetection/1.0.x").pipe(input).then(function(output) {
+
     if (output.error) {
         console.log(output.error);
     } else {
@@ -47,7 +48,8 @@ client.algo("sfw/NudityDetection").pipe(input).then(function(output) {
     }
 });
 ```
-As you can see in the above code sample, the input that we are sending to the algorithm through the API call is a URL to an image. Replace this with the URL to any image of your liking to get a feel for how the algorithm works. You should see that the code will return: `Nude: Confidence: 99%` or `Not Nude: Confidence: 99%`. You can then evaluate the string to come to a conclusion inside your application about whether or not the image is nude and how confident you are.
+As you can see in the above code sample, the input that we are sending to the algorithm through the API call is a URL to an image. Replace this with the URL to any image of your liking to get a feel for how the algorithm works. You should see that the `output.result` will return: `{ nude: 'true', confidence: 1 }`. You can then evaluate the JSON to determine inside your application about whether or not the image is nude and how confident you are.
+
 
 Note that the API key should be modified to match your data.
 
@@ -66,10 +68,10 @@ client.algo("sfw/NudityDetection/1.0.x").pipe(input).then(function(output) {
     console.log(output.error);
   } else {
 
-    var result = JSON.parse(output.result);
+    var result = output.result;
     confidence = result.confidence;
 
-    if (confidence < 85) {
+    if (confidence < 0.85) {
       console.log("Uncertain");
     } else if (result.nude) {
       console.log("Nude");
@@ -80,6 +82,6 @@ client.algo("sfw/NudityDetection/1.0.x").pipe(input).then(function(output) {
 });
 ```
 
-Here we have an example where we've parsed out the confidence level from the algorithm's result, then added in a conditional check. Where `confidence < 85`, we can take special action such as adding the image to a moderation queue or adding a warning that the content might contain nudity.
+Here we have an example where we've parsed out the confidence level from the algorithm's result, then added in a conditional check. Where `confidence < 0.85`, we can take special action such as adding the image to a moderation queue or adding a warning that the content might contain nudity.
 
 By using the Nudity Detection algorithm and adjusting the threshold to our needs, you can easily see how valuable the algorithm can be for web developers. It allows you another layer of safety and control when working with applications that include user-uploaded content.
