@@ -52,7 +52,7 @@ var algorithmia = require("algorithmia");
 var client = algorithmia(process.env.ALGORITHMIA_API_KEY);
 var input = [[1,2,3],[0],[0],[0,4,5,6,7],[],[],[],[]];
 
-client.algo("thatguy2048/PageRank").pipe(input).then(function(output) {
+client.algo("thatguy2048/PageRank/0.1.0").pipe(input).then(function(output) {
     if (output.error) {
         console.log(output.error);
     } else {
@@ -105,7 +105,7 @@ var algorithmia = require("algorithmia");
 var client = algorithmia(process.env.ALGORITHMIA_API_KEY);
 var input = 'https://your-domain.com';
 
-client.algo("/web/PageRank").pipe(input).then(function(output) {
+client.algo("/web/PageRank/0.1.0").pipe(input).then(function(output) {
     if (output.error) {
       console.log(output.error);
     } else {

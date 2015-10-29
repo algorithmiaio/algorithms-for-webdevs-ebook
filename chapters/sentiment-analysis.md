@@ -29,7 +29,7 @@ var input = "happy";
 var no_retweets = [];
 
 console.log("Analyzing tweets with phrase: " + input);
-client.algo("/diego/RetrieveTweetsWithKeyword").pipe(input).then(function(output) {
+client.algo("/diego/RetrieveTweetsWithKeyword/0.1.2").pipe(input).then(function(output) {
     if (output.error) {
         console.log(output.error);
     } else {
@@ -61,7 +61,7 @@ var analyze_tweets = function(no_retweets) {
 
     // Execute sentiment analysis on every tweet in the array, then calculate average score.
     for (var j = 0; j < no_retweets.length; j++) {
-        client.algo("nlp/SentimentAnalysis").pipe(no_retweets[j]).then(function(output) {
+        client.algo("nlp/SentimentAnalysis/0.1.1").pipe(no_retweets[j]).then(function(output) {
         if(output.error) {
             console.log(output.error);
         } else {
